@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index"
+    "start": "node ./index",
+    "dev": "nodemon ./index"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,14 @@
   },
   "homepage": "https://github.com/ZarathosDeath/linkApi#readme",
   "dependencies": {
+    "axios": "^0.21.0",
     "express": "^4.17.1",
-    "mongodb": "^3.6.3"
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.7",
+    "pipedrive": "^10.4.3",
+    "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
