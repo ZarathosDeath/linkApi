@@ -5,15 +5,13 @@ const axios = require('axios')
 exports.blingRepository = () => ({
   async add (orders) {
     const xmlData = await xmlParser(orders)
-    console.log(xmlData);
-    const response = await axios.post(
-      `https://bling.com.br/Api/v2/pedidocompra/json/?apikey=${token}&xml=${xmlData[0]}`,
+    await axios.post(
+      `https://bling.com.br/Api/v2/pedidocompra/json/?apikey=${token}&xml=${xmlData}`,
       null,
       { headers: {
       'Content-Type': 'application/json'
       }
     })
-    console.log(response.status);
   }
 })
 
@@ -51,7 +49,6 @@ const xmlParser = async (deals) => {
         }
       }
       const parsedData = builder.buildObject(mapToXml)
-    console.log(parsedData);
       xmlData.push(encodeURI(parsedData))
     }
     resolve(xmlData)
